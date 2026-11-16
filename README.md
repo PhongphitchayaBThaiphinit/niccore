@@ -1,35 +1,54 @@
+
 # NIC Core
 
-## Project structure
-- `server.js` and `package.json` are in the repository root.
-- Front-end files are inside `public/`.
+Smart Soil Monitoring System
 
-## Run
-```bash
+## Features
+
+- ESP32 Bluetooth LE connection
+- AF324 RS485 soil sensor
+- NPK monitoring
+- Soil moisture monitoring
+- Temperature monitoring
+- Soil pH monitoring
+- SQLite database
+- Real-time dashboard
+- Measurement history
+- Moisture chart
+- Responsive mobile website
+
+## Installation
+
+Install Node.js.
+
+Run:
+
 npm install
+
+Start:
+
 npm start
-```
 
-## Render deployment
-Create a Render **Web Service** connected to this repository.
-- Build command: `npm install`
-- Start command: `npm start`
+Open:
 
-The repository root must contain `server.js`, `package.json`, and the `public` folder.
-The `public` folder must contain `index.html`, `style.css`, and `app.js`.
+http://localhost:3000
 
-After upload, verify the GitHub repository displays:
-```text
-NIC-Core/
-├── package.json
-├── server.js
-├── NIC_Core_ESP32.ino
-└── public/
-    ├── index.html
-    ├── style.css
-    └── app.js
-```
+## Deployment
 
-Render free instances use an ephemeral filesystem. SQLite history may not persist across restarts/redeploys unless you configure persistent storage or use a managed database.
+Push this repository to GitHub.
 
-Web Bluetooth requires HTTPS (Render URL) and a supported browser such as Chrome or Edge. The ESP32 must be physically near the device running the browser.
+Create a Render Web Service.
+
+Build Command:
+
+npm install
+
+Start Command:
+
+npm start
+
+Set DATABASE_PATH to a persistent disk path.
+
+Important:
+Web Bluetooth requires Chrome or Edge
+and a secure HTTPS connection.
