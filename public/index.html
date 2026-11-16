@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#176b45">
+  <title>NIC Core | Smart Soil Monitoring</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">N</span><span>NIC <b>CORE</b><small>SMART AGRICULTURE</small></span></a>
+    <nav>
+      <a class="active" href="#dashboard">▦ <span>Dashboard</span></a>
+      <a href="#history">◷ <span>History</span></a>
+      <a href="#device">⌁ <span>Device</span></a>
+    </nav>
+    <div class="side-note"><span class="live-dot"></span> Soil intelligence<br><small>Monitoring system</small></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><p class="eyebrow">SMART SOIL MONITORING</p><h1>ภาพรวมระบบ</h1></div>
+      <div class="top-actions">
+        <span class="status-pill"><i id="statusDot"></i><span id="statusText">ยังไม่เชื่อมต่อ</span></span>
+        <button class="btn btn-primary" id="connectBtn">⌁ เชื่อมต่ออุปกรณ์</button>
+      </div>
+    </header>
+
+    <section class="welcome" id="dashboard">
+      <div><p class="eyebrow light">NIC CORE / DASHBOARD</p><h2>NIC core<br> Nexus Inspecurator core</h2><p>ติดตามค่าดินจาก NIC core. แบบเรียลไทม์</p></div>
+      <div class="welcome-art" aria-hidden="true"><span>🌱</span><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="section-heading">
+      <div><h2>ค่าตรวจวัดล่าสุด</h2><p>อัปเดตเมื่อ <span id="lastUpdated">ยังไม่มีข้อมูล</span></p></div>
+      <span class="live-label"><span class="live-dot"></span> LIVE DATA</span>
+    </section>
+
+    <section class="metric-grid">
+      <article class="metric"><div class="metric-top"><span>Nitrogen</span><b class="metric-icon">N</b></div><strong id="valN">—</strong><small>mg/kg</small></article>
+      <article class="metric"><div class="metric-top"><span>Phosphorus</span><b class="metric-icon">P</b></div><strong id="valP">—</strong><small>mg/kg</small></article>
+      <article class="metric"><div class="metric-top"><span>Potassium</span><b class="metric-icon">K</b></div><strong id="valK">—</strong><small>mg/kg</small></article>
+      <article class="metric"><div class="metric-top"><span>Moisture</span><b class="metric-icon">💧</b></div><strong id="valM">—</strong><small>%</small></article>
+      <article class="metric"><div class="metric-top"><span>Temperature</span><b class="metric-icon">°</b></div><strong id="valT">—</strong><small>°C</small></article>
+      <article class="metric"><div class="metric-top"><span>Soil pH</span><b class="metric-icon">pH</b></div><strong id="valPH">—</strong><small>pH</small></article>
+    </section>
+
+    <section class="panel chart-panel">
+      <div class="panel-heading"><div><h2>แนวโน้มความชื้นในดิน</h2><p>ข้อมูล 20 รายการล่าสุด</p></div><span class="chart-unit">MOISTURE (%)</span></div>
+      <canvas id="moistureChart" height="110" aria-label="กราฟแนวโน้มความชื้น"></canvas>
+      <p id="chartEmpty" class="empty-hint">กราฟจะแสดงเมื่อได้รับข้อมูลจากอุปกรณ์</p>
+    </section>
+
+    <section class="panel" id="history">
+      <div class="panel-heading"><div><h2>ประวัติการตรวจวัด</h2><p>บันทึกข้อมูลลงฐานข้อมูลในเครื่องเซิร์ฟเวอร์</p></div><div class="table-actions"><button class="btn btn-outline" id="refreshBtn">↻ รีเฟรช</button><button class="btn btn-danger-light" id="clearBtn">ล้างประวัติ</button></div></div>
+      <div class="table-wrap"><table><thead><tr><th>วัน / เวลา</th><th>N</th><th>P</th><th>K</th><th>Moisture</th><th>Temp</th><th>pH</th></tr></thead><tbody id="historyBody"><tr><td colspan="7" class="empty-cell">ยังไม่มีข้อมูล</td></tr></tbody></table></div>
+    </section>
+
+    <section class="panel device-panel" id="device">
+      <div><h2>การเชื่อมต่ออุปกรณ์</h2><p id="deviceMessage">กด “เชื่อมต่ออุปกรณ์” แล้วเลือก NIC Core จากหน้าต่าง Bluetooth</p></div>
+      <div class="device-actions"><span class="device-name" id="deviceName">ไม่พบอุปกรณ์ที่เชื่อมต่อ</span><button class="btn btn-outline" id="disconnectBtn" disabled>ตัดการเชื่อมต่อ</button></div>
+    </section>
+    <footer>NIC CORE © 2026 · Smart Agriculture Technology</footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
